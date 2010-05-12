@@ -1,0 +1,408 @@
+/*
+ * Copyright 2010 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+h1 {
+    font-size: 200%;
+    margin-top: 1em;
+    margin-bottom: 0.6em;
+}
+
+h2 {
+    font-size: 140%;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    font-size: 120%;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+p {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+#top {
+    width: 100%;
+    background: white;
+}
+
+#bottom {
+    width: 100%;
+    background: #5b7e52 url('../img/footer.png') top left repeat;
+    height: 260px;
+}
+
+#middle {
+    width: 100%;
+    background: #e0e0e0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#headerContainer, .contentContainer, #footerContainer {
+    width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header, #footer {
+    width: 990px;
+    margin-bottom: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+#header {
+    position: relative;
+    height: 100px;
+}
+
+#header #logo {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+#header #logo a:hover {
+    text-decoration: none;
+}
+
+#header #title {
+    font-size: 41pt;
+    font-weight: bolder;
+    color: #4a9935;
+    line-height: 36pt;
+    font-family: inherit;
+}
+
+#header #quote {
+    font-size: 14pt;
+    padding-left: 6px;
+    color: #808080;
+    font-family: inherit;
+}
+
+#header a {
+    color: #4a9935;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: #4a9935;
+    text-decoration: underline;
+}
+
+#navbar {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#navbar ul {
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+}
+
+#navbar li {
+    list-style: none;
+    display: inline;
+}
+
+#navbar a {
+    font-weight: bold;
+    color: #444444;
+    text-decoration: none;
+    margin-left: 50px;
+}
+
+#navbar a:hover {
+    color: #444444;
+    text-decoration: underline;
+}
+
+#navbar .selected {
+    color: #327bad;
+}
+
+.contentTop {
+    background: white url('../img/contentTop.png') 0 0 no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1130px;
+    height: 40px;
+}
+
+.contentBottom {
+    background: white url('../img/contentBottom.png') 0 0 no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1130px;
+    height: 40px;
+}
+
+.contentContainer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1130px;
+    background: white url('../img/contentMiddle.png') 0 0;
+}
+
+.content {
+    margin-left: 70px;
+    margin-right: 70px;
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+
+.content h1 {
+    margin-top: 0.2em;
+}
+
+.content a {
+    color: #4a9935;
+    text-decoration: none;
+}
+
+.content a:hover {
+    color: #4a9935;
+    text-decoration: underline;
+}
+
+#homeTitle {
+    font-size: 300%;
+    margin-top: 0;
+    padding-top: 0.2em;
+    margin-bottom: 0.5em;
+    font-family: Helvetica, sans-serif;
+}
+
+#homeContent {
+    position: relative;
+    width: 100%;
+}
+
+#about {
+    width: 570px;
+    margin-bottom: 2.6em;
+}
+
+#about h2 {
+    margin-top: 1.4em;
+}
+
+#about p {
+    margin-top: 0.2em;
+}
+
+#about .more {
+    width: 100%;
+    text-align: right;
+    padding-top: 1.6em;
+}
+
+#about .more a img {
+    border: none;
+    /*font-size: 160%;*/
+    /*text-decoration: none;*/
+    /*color: white;*/
+    /*width: 180px; */
+    /*height: 40px;*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*top: 30px;*/
+    /*right: 30px;*/
+    /*vertical-align: baseline;*/
+    /*text-align: center;*/
+    /*-moz-border-radius: 10px;*/
+    /*-webkit-border-radius: 10px;*/
+    /*background-color: #DB8C1B;*/
+    /*background-image: -moz-linear-gradient(#f2b42c, #d48008);*/
+    /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f2b42c), to(#d48008));*/
+}
+
+#rightcolumn {
+    position: absolute;
+    top: 21px;
+    right: 0;
+}
+
+#gettingstarted {
+    background: #e4eef5 url('../img/getStartedBottom.png') bottom left no-repeat;
+    width: 335px;
+}
+
+#gettingstarted h2 {
+    background: white url('../img/getStarted.png') 0 0 no-repeat;
+    color: white;
+    margin: 0;
+    height: 31px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+#gettingstarted ol {
+    margin: 0;
+    padding: 0;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 1px;
+}
+
+#gettingstarted li {
+    font-size: 120%;
+    font-weight: bold;
+    color: #444444;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    list-style-position: inside;
+}
+
+#homeColumns {
+    position: relative;
+    width: 660px;
+    height: 240px;
+}
+
+#training {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#who_uses {
+    position: absolute;
+    top: 0;
+    left: 330px;
+}
+
+#who_uses td {
+    padding: 0;
+    margin: 0;
+    padding-right: 3em;
+}
+
+#who_uses table {
+    padding: 0;
+    margin: 0;
+    margin-left: 0.3em;
+    border-collapse: collapse;
+}
+
+#who_uses tr {
+    padding: 0;
+    margin: 0;
+}
+
+#who_uses ul {
+    padding-left: 0.4em;
+}
+
+#who_uses li {
+    list-style: disc;
+    color: #4a9935;
+    margin-left: 0.3em;
+}
+
+#news {
+    margin-top: 40px;
+    width: 310px;
+    padding-left: 25px;
+}
+
+.homeList ul {
+    margin: 0;
+    padding: 0;
+    line-height: 1.25em;
+}
+
+.homeList li {
+    margin-left: 0;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    list-style: none;
+}
+
+.homeList li a {
+    text-decoration: none;
+}
+
+.more {
+    font-weight: bold;
+}
+
+table.tools {
+    margin-top: 1.5em;
+    width: 70%;
+}
+
+table.tools td {
+    width: 30%;
+    text-align: center;
+    padding-bottom: 1.5em;
+    vertical-align: middle;
+}
+
+table.tools a {
+    display: block;
+    margin-top: 0.6em;
+}
+
+.figure-contents {
+    overflow-x: auto;
+}
+
+#footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 90%;
+    line-height: 1.4em;
+}
+
+#footer div {
+    font-size: inherit;
+}
+
+#footer a {
+    color: white;
+    text-decoration: none;
+}
+
+#footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#footer .container {
+    width: 165px;
+    float: left;
+}
+
+#footer .container .headline {
+    font-weight: bold;
+}
+
+#footer .container .entry {
+    padding-top: 5px;
+}
