@@ -27,8 +27,6 @@
                         
                             <g:sortableColumn property="mail" title="${message(code: 'shiroUser.mail.label', default: 'Mail')}" />
                         
-                            <g:sortableColumn property="passwordHash" title="${message(code: 'shiroUser.passwordHash.label', default: 'Password Hash')}" />
-                        
                         </tr>
                     </thead>
                     <tbody>
@@ -40,8 +38,6 @@
                             <td>${fieldValue(bean: shiroUserInstance, field: "username")}</td>
                         
                             <td>${fieldValue(bean: shiroUserInstance, field: "mail")}</td>
-                        
-                            <td>${fieldValue(bean: shiroUserInstance, field: "passwordHash")}</td>
                         
                         </tr>
                     </g:each>

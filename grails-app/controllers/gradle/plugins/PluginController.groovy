@@ -4,6 +4,7 @@ package gradle.plugins
 
 import org.apache.shiro.SecurityUtils;
 
+import plugin.PermissionHelper;
 import plugin.Plugin 
 import user.ShiroUser;
 
@@ -38,7 +39,7 @@ class PluginController {
         def pluginInstance = new Plugin(params)
         pluginInstance.addToOwners getUser()
         if (pluginInstance.save(flush: true)) {
-			user.addToPermissions("plugin:show,edit,update:" + pluginInstance.id)
+			user.addToPermissions(PermissionHelper.defaultPermissionString + pluginInstance.id)
 			user.save(flush:true)
 			
             flash.message = "${message(code: 'default.created.message', args: [message(code: 'plugin.label', default: 'Plugin'), pluginInstance.id])}"
@@ -102,6 +103,9 @@ class PluginController {
         def pluginInstance = Plugin.get(params.id)
         if (pluginInstance) {
             try {
+				pluginInstance.owners.each { ShiroUser owner ->
+					owner.permissions.remove(PermissionHelper.defaultPermissionString + pluginInstance.id)
+				}
                 pluginInstance.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'plugin.label', default: 'Plugin'), params.id])}"
                 redirect(action: "list")

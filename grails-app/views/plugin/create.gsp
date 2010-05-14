@@ -26,19 +26,19 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="description"><g:message code="plugin.description.label" default="Description" /></label>
+                                    <label for="name"><g:message code="plugin.name.label" default="Name" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: pluginInstance, field: 'description', 'errors')}">
-                                    <g:textField name="description" value="${pluginInstance?.description}" />
+                                <td valign="top" class="value ${hasErrors(bean: pluginInstance, field: 'name', 'errors')}">
+                                    <g:textField name="name" value="${pluginInstance?.name}" />
                                 </td>
                             </tr>
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="name"><g:message code="plugin.name.label" default="Name" /></label>
+                                    <label for="description"><g:message code="plugin.description.label" default="Description" /></label>
                                 </td>
-                                <td valign="top" class="value ${hasErrors(bean: pluginInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${pluginInstance?.name}" />
+                                <td valign="top" class="value ${hasErrors(bean: pluginInstance, field: 'description', 'errors')}">
+                                    <g:textArea name="description" value="${pluginInstance?.description}" />
                                 </td>
                             </tr>
                         

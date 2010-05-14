@@ -12,8 +12,15 @@ class ShiroUser {
         username(nullable: false, blank: false, unique:true)
 		mail(nullable:false, blank: false, email:true, unique:true)
 		passwordHash(nullable:false, blank: false)
-//		password(nullable:false, blank:false, minSize: 3)
     }
 	
 	static transients = ['password', 'captcha']
+	
+	String permissionString() {
+		def pString = ""
+    	permissions.each { permission ->
+			pString += permission + '\n'
+		}
+		return pString
+	}
 }

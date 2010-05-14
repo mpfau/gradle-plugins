@@ -9,7 +9,7 @@ import user.ShiroUser;
 
 class ShiroUserController {
 
-    static allowedMethods = [update: "POST", delete: "POST"]
+    static allowedMethods = [update: "POST", updatePermissions: "POST", delete: "POST"]
 
     def index = {
         redirect(action: "list", params: params)
@@ -32,14 +32,22 @@ class ShiroUserController {
     }
 
     def edit = {
-        def shiroUserInstance = ShiroUser.get(params.id)
-        if (!shiroUserInstance) {
-            flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'shiroUser.label', default: 'ShiroUser'), params.id])}"
-            redirect(action: "list")
-        }
-        else {
-            return [shiroUserInstance: shiroUserInstance]
-        }
+    	return edit()
+    }
+
+    def edit() {
+		def shiroUserInstance = ShiroUser.get(params.id)
+		if (!shiroUserInstance) {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'shiroUser.label', default: 'ShiroUser'), params.id])}"
+			redirect(action: "list")
+		}
+		else {
+			return [shiroUserInstance: shiroUserInstance]
+		}
+    }
+
+    def editPermissions = {
+        return edit()
     }
 
     def update = {
@@ -68,6 +76,33 @@ class ShiroUserController {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'shiroUser.label', default: 'ShiroUser'), params.id])}"
             redirect(action: "list")
         }
+    }
+
+    def updatePermissions = {
+		def shiroUserInstance = ShiroUser.get(params.id)
+		shiroUserInstance.permissions = params.permissions.tokenize('\n')
+		if (shiroUserInstance) {
+			if (params.version) {
+				def version = params.version.toLong()
+				if (shiroUserInstance.version > version) {
+					
+					shiroUserInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'shiroUser.label', default: 'ShiroUser')] as Object[], "Another user has updated this ShiroUser while you were editing")
+					render(view: "edit", model: [shiroUserInstance: shiroUserInstance])
+					return
+				}
+			}
+			if (!shiroUserInstance.hasErrors() && shiroUserInstance.save(flush: true)) {
+				flash.message = "${message(code: 'default.updated.message', args: [message(code: 'shiroUser.label', default: 'ShiroUser'), shiroUserInstance.id])}"
+				redirect(action: "show", id: shiroUserInstance.id)
+			}
+			else {
+				render(view: "edit", model: [shiroUserInstance: shiroUserInstance])
+			}
+		}
+		else {
+			flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'shiroUser.label', default: 'ShiroUser'), params.id])}"
+			redirect(action: "list")
+		}
     }
 
     def delete = {
